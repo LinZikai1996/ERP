@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ERP.dao.CustomerDao">
+    <resultMap type="Customer" id="CustomerResult" autoMapping="true">
+    </resultMap>
+
+    <select id="findAll" resultMap="CustomerResult" >
+        SELECT * FROM Customer
+        LEFT JOIN OrderList ON Customer.id = OrderList.customerId
+    </select>
+
+</mapper>

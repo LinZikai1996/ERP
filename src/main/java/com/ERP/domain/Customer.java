@@ -6,7 +6,7 @@ import java.util.List;
 public class Customer implements Serializable {
     private Integer id;
     private String name;
-    private List<Order> orderList;
+    private List<OrderList> orderList;
 
     public Integer getId() {
         return id;
@@ -24,11 +24,11 @@ public class Customer implements Serializable {
         this.name = name;
     }
 
-    public List<Order> getOrderList() {
+    public List<OrderList> getOrderList() {
         return orderList;
     }
 
-    public void setOrderList(List<Order> orderList) {
+    public void setOrderList(List<OrderList> orderList) {
         this.orderList = orderList;
     }
 
