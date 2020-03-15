@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ERP.dao.AdministratorsDao">
+    <resultMap type="Administrators" id="AdministratorsResult" autoMapping="true">
+    </resultMap>
+
+    <select id="findByNameAndPwd" parameterType="map" resultMap="AdministratorsResult">
+        SELECT * FROM Administrators
+        WHERE administratorName = #{administratorName} AND PASSWORD = #{password}
+    </select>
+</mapper>
