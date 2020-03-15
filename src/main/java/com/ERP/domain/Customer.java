@@ -1,26 +1,27 @@
 package com.ERP.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class User {
-    private String id;
-    private String userName;
+public class Customer implements Serializable {
+    private Integer id;
+    private String name;
     private List<Order> orderList;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Order> getOrderList() {
@@ -33,10 +34,11 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", userName='" + userName + '\'' +
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", orderList=" + orderList +
                 '}';
     }
 }
+
