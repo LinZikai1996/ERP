@@ -5,29 +5,46 @@
   Time: 下午3:14
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <title>Title</title>
-</head>
-<body>
-<h1>
-    index file
-    <form id="center-right-loginform" action="administrator/login" method="post">
-        <div class="form-group">
-            <label for="InputstudentNumber">用户学号</label>
-            <input type="text" class="form-control" id="InputstudentNumber" placeholder="请输入学号" name="administratorName">
-        </div>
-        <div class="form-group">
-            <label for="InputPassword">用户密码</label>
-            <input type="password" class="form-control" id="InputPassword" placeholder="请输入密码" name="password">
-        </div>
-        <br />
-        <center><button type="submit" class="btn btn-success form-control">登录</button></center>
-        <br /><br />
-        <center><p class="help-block" id="messageText">欢迎使用</p></center>
-    </form>
-</h1>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>Signin Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="view/css/bootstrap.min.css" />
+    <script type="text/javascript" src="view/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="view/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="view/css/index.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <form class="form-signin" action="${pageContext.request.contextPath}/administrator/login.do" method="post">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <label for="administratorName" class="sr-only">Administrator</label>
+            <input name="administratorName" type="text" id="administratorName" class="form-control" placeholder="administrator" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input name="password" type="password" id="inputPassword" class="form-control" placeholder="password" required>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+
+    </div>
 </body>
 </html>

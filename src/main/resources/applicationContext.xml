@@ -11,6 +11,7 @@
     <!-- 设置自动扫描的包 -->
     <context:component-scan base-package="com.ERP"/>
 
+
     <!-- 配置数据源 -->
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
