@@ -22,11 +22,25 @@ public class CustomerControllerTest {
 
     @Test
     public void addCustomer() {
+        Customer customer = new Customer("wang");
+        customerService.add(customer);
     }
 
     @Test
     public void listCustomer() {
         List<Customer> customerList = customerService.all();
         System.out.println(customerList);
+    }
+
+    @Test
+    public void findCustomerById(){
+        Customer customer = customerService.findById(1);
+        System.out.println(customer);
+    }
+
+    @Test
+    public void findCustomerByName(){
+        Customer customer = customerService.findByName("Lin");
+        System.out.println(customer);
     }
 }

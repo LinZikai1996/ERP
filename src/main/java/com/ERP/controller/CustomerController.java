@@ -17,6 +17,7 @@ public class CustomerController {
     @Resource
     private CustomerService customerService;
 
+
     @RequestMapping("/add")
     public ModelAndView addCustomer(@RequestParam("customer") Customer customer){
         ModelAndView modelAndView = new ModelAndView();
@@ -34,6 +35,22 @@ public class CustomerController {
         ModelAndView modelAndView = new ModelAndView("customerManage");
         List<Customer> customerList = customerService.all();
         modelAndView.addObject("customerList",customerList);
+        return modelAndView;
+    }
+
+    @RequestMapping("/findById")
+    public ModelAndView findCustomerById(@RequestParam("id") Integer id){
+        ModelAndView modelAndView = new ModelAndView();
+        Customer customer = customerService.findById(id);
+        modelAndView.addObject("customer",customer);
+        return modelAndView;
+    }
+
+    @RequestMapping("/findByName")
+    public ModelAndView findCustomerByName(@RequestParam("name") String name){
+        ModelAndView modelAndView = new ModelAndView();
+        Customer customer = customerService.findByName(name);
+        modelAndView.addObject("customer",customer);
         return modelAndView;
     }
 }

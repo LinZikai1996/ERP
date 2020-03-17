@@ -8,6 +8,13 @@ public class Customer implements Serializable {
     private String name;
     private List<OrderList> orderList;
 
+    public Customer() {
+    }
+
+    public Customer(String name) {
+        this.name = name;
+    }
+
     public Integer getId() {
         return id;
     }

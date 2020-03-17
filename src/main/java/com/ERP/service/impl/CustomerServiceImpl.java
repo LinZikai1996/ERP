@@ -19,6 +19,19 @@ public class CustomerServiceImpl implements CustomerService {
         return result == 1;
     }
 
+    public boolean update(Customer customer){
+        int result = customerDao.update(customer);
+        return result == 1;
+    }
+
+    public Customer findById(Integer id){
+        return customerDao.findById(id);
+    }
+
+    public Customer findByName(String name) {
+        return customerDao.findByName(name);
+    }
+
     public List<Customer> all() {
         return customerDao.findAll();
     }
