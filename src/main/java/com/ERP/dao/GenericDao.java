@@ -5,8 +5,8 @@ import java.util.List;
 
 public interface GenericDao <Entity extends Serializable, ID> {
     Entity findById(ID id);
-    List<Entity> findByName(String name);
-    List<Entity> findByAll();
+    Entity findByName(String name);
+    List<Entity> findAll();
     List<Entity> findBySQL(final String sql, final Object... params);
 
     int add(Entity entity);

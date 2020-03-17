@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Controller
 @RequestMapping("/customer")
@@ -16,10 +17,40 @@ public class CustomerController {
     @Resource
     private CustomerService customerService;
 
+
     @RequestMapping("/add")
     public ModelAndView addCustomer(@RequestParam("customer") Customer customer){
         ModelAndView modelAndView = new ModelAndView();
-        customerService.add(customer);
+        boolean result = customerService.add(customer);
+        if (result){
+            modelAndView.addObject("information", "添加成功");
+        } else {
+            modelAndView.addObject("information", "添加失败");
+        }
+        return modelAndView;
+    }
+
+    @RequestMapping("/list")
+    public ModelAndView listCustomer(){
+        ModelAndView modelAndView = new ModelAndView("customerManage");
+        List<Customer> customerList = customerService.all();
+        modelAndView.addObject("customerList",customerList);
+        return modelAndView;
+    }
+
+    @RequestMapping("/findById")
+    public ModelAndView findCustomerById(@RequestParam("id") Integer id){
+        ModelAndView modelAndView = new ModelAndView();
+        Customer customer = customerService.findById(id);
+        modelAndView.addObject("customer",customer);
+        return modelAndView;
+    }
+
+    @RequestMapping("/findByName")
+    public ModelAndView findCustomerByName(@RequestParam("name") String name){
+        ModelAndView modelAndView = new ModelAndView();
+        Customer customer = customerService.findByName(name);
+        modelAndView.addObject("customer",customer);
         return modelAndView;
     }
 }

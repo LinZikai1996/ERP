@@ -3,9 +3,10 @@ package com.ERP.domain;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
+import java.io.Serializable;
 
 @Component
-public class Order {
+public class OrderList implements Serializable {
     private String id;
     private String userId;
     private Integer total;

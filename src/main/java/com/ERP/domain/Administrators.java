@@ -11,7 +11,7 @@ public class Administrators implements Serializable {
     }
 
     public void setAdministratorName(String administratorName) {
-        administratorName = administratorName;
+        this.administratorName = administratorName;
     }
 
     public String getPassword() {
