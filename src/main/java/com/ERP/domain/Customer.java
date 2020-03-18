@@ -11,6 +11,12 @@ public class Customer implements Serializable {
     public Customer() {
     }
 
+    public Customer(Integer id, String name, List<OrderList> orderList) {
+        this.id = id;
+        this.name = name;
+        this.orderList = orderList;
+    }
+
     public Customer(String name) {
         this.name = name;
     }

@@ -2,30 +2,38 @@ package com.ERP.domain;
 
 import org.springframework.stereotype.Component;
 
-import javax.swing.*;
 import java.io.Serializable;
 
 @Component
 public class OrderList implements Serializable {
-    private String id;
-    private String userId;
+    private Integer id;
+    private Integer customerId;
     private Integer total;
-    private Integer rest;
+    private Integer remain;
 
-    public String getId() {
+    public OrderList() {
+    }
+
+    public OrderList(Integer customerId, Integer total, Integer remain) {
+        this.customerId = customerId;
+        this.total = total;
+        this.remain = remain;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
+    public Integer getUserId() {
+        return customerId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserId(Integer userId) {
+        this.customerId = userId;
     }
 
     public Integer getTotal() {
@@ -36,21 +44,21 @@ public class OrderList implements Serializable {
         this.total = total;
     }
 
-    public Integer getRest() {
-        return rest;
+    public Integer getRemain() {
+        return remain;
     }
 
-    public void setRest(Integer rest) {
-        this.rest = rest;
+    public void setRemain(Integer remain) {
+        this.remain = remain;
     }
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "OrderList{" +
                 "id='" + id + '\'' +
-                ", userId='" + userId + '\'' +
+                ", customerId='" + customerId + '\'' +
                 ", total=" + total +
-                ", rest=" + rest +
+                ", remain=" + remain +
                 '}';
     }
 }

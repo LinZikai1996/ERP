@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Signin Template for Bootstrap</title>
+    <title>sign in</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="view/css/bootstrap.min.css" />

@@ -25,7 +25,7 @@ public class AdministratorsController {
         ModelAndView modelAndView = new ModelAndView();
         Administrators administrators = administratorsService.login(administratorName, password);
         if (administrators != null){
-            modelAndView.setViewName("success");
+            modelAndView.setViewName("orderListManage");
             modelAndView.addObject("administrators", administrators);
         } else {
             modelAndView.setViewName("../index");

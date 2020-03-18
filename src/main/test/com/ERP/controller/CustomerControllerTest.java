@@ -2,6 +2,7 @@ package com.ERP.controller;
 
 import com.ERP.domain.Customer;
 import com.ERP.service.CustomerService;
+import com.ERP.service.OrderListService;
 import com.ERP.service.impl.CustomerServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +19,7 @@ import static org.junit.Assert.*;
 public class CustomerControllerTest {
 
     @Resource
-    CustomerService customerService;
+    private CustomerService customerService;
 
     @Test
     public void addCustomer() {
@@ -41,6 +42,6 @@ public class CustomerControllerTest {
     @Test
     public void findCustomerByName(){
         Customer customer = customerService.findByName("Lin");
-        System.out.println(customer);
+        System.out.println(customer.getId());
     }
 }

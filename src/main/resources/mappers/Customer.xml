@@ -3,7 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ERP.dao.CustomerDao">
-    <resultMap type="Customer" id="CustomerResult" autoMapping="true">
+    <resultMap  id="CustomerResult" type="Customer" autoMapping="true">
+        <id column="id" property="id"/>
+        <collection property="orderList" ofType="OrderList" resultMap="com.ERP.dao.OrderListDao.orderList" autoMapping="true"/>
     </resultMap>
 
     <select id="findAll" resultMap="CustomerResult" >
@@ -17,8 +19,9 @@
         WHERE Customer.id = #{id}
     </select>
 
-    <select id="findByName" parameterType="String" resultMap="CustomerResult">
-        SELECT * FROM Customer
+    <select id="findByName" parameterType="string" resultMap="CustomerResult">
+        SELECT * , Customer.id AS cid, OrderList.id AS oid
+        FROM Customer
         LEFT JOIN OrderList ON Customer.id = OrderList.customerId
         WHERE Customer.name = #{name}
     </select>
