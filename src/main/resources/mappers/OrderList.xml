@@ -3,7 +3,25 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ERP.dao.OrderListDao">
-    <resultMap type="OrderList" id="OrderListResult" autoMapping="true">
+    <resultMap id="orderList" type="OrderList"  autoMapping="true">
     </resultMap>
 
+    <select id="findAll" resultMap="orderList">
+        SELECT * FROM OrderList
+    </select>
+
+    <select id="findOrderByCustomerName" parameterType="string" resultMap="orderList">
+        SELECT * FROM OrderList
+        LEFT JOIN Customer ON Customer.id = OrderList.customerId
+        WHERE Customer.name = #{name}
+    </select>
+
+    <insert id="add" parameterType="OrderList" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO orderList VALUES (null, #{total}, #{remain}, #{customerId})
+    </insert>
+
+    <delete id="delete" parameterType="OrderList">
+        DELETE FROM orderList
+        WHERE id = #{id}
+    </delete>
 </mapper>

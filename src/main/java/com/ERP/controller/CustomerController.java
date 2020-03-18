@@ -2,6 +2,7 @@ package com.ERP.controller;
 
 import com.ERP.domain.Customer;
 import com.ERP.service.CustomerService;
+import com.ERP.service.OrderListService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +17,9 @@ public class CustomerController {
 
     @Resource
     private CustomerService customerService;
+
+    @Resource
+    private OrderListService orderListService;
 
 
     @RequestMapping("/add")
@@ -50,6 +54,7 @@ public class CustomerController {
     public ModelAndView findCustomerByName(@RequestParam("name") String name){
         ModelAndView modelAndView = new ModelAndView();
         Customer customer = customerService.findByName(name);
+        customer.setOrderList(orderListService.findOrderByCustomerName(name));
         modelAndView.addObject("customer",customer);
         return modelAndView;
     }
