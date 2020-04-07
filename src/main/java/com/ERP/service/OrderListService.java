@@ -8,7 +8,7 @@ public interface OrderListService {
 
     List<OrderList> findOrderByCustomerName(String customer);
 
-    List<OrderList> findAll();
+    List<OrderList> all();
 
     boolean add(OrderList orderList);
 

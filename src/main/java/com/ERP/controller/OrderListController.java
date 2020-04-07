@@ -27,7 +27,7 @@ public class OrderListController {
     @RequestMapping("/findAll")
     public ModelAndView findAllOrderList(){
         ModelAndView modelAndView = new ModelAndView("orderListManage");
-        List<OrderList> orderLists = orderListService.findAll();
+        List<OrderList> orderLists = orderListService.all();
         modelAndView.addObject("orderLists",orderLists);
         return modelAndView;
     }
