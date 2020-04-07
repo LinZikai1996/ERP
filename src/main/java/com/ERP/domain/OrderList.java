@@ -3,21 +3,24 @@ package com.ERP.domain;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+import java.util.Date;;
 
 @Component
 public class OrderList implements Serializable {
     private Integer id;
-    private Integer customerId;
+    private Customer customer;
     private Integer total;
     private Integer remain;
+    private String date;
 
     public OrderList() {
     }
 
-    public OrderList(Integer customerId, Integer total, Integer remain) {
-        this.customerId = customerId;
+    public OrderList(Customer customer, Integer total, Integer remain, String date) {
+        this.customer = customer;
         this.total = total;
         this.remain = remain;
+        this.date = date;
     }
 
     public Integer getId() {
@@ -28,12 +31,12 @@ public class OrderList implements Serializable {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return customerId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setUserId(Integer userId) {
-        this.customerId = userId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public Integer getTotal() {
@@ -52,13 +55,22 @@ public class OrderList implements Serializable {
         this.remain = remain;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
         return "OrderList{" +
-                "id='" + id + '\'' +
-                ", customerId='" + customerId + '\'' +
+                "id=" + id +
+                ", customer=" + customer +
                 ", total=" + total +
                 ", remain=" + remain +
+                ", date=" + date +
                 '}';
     }
 }

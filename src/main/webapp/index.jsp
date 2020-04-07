@@ -18,12 +18,12 @@
     <title>sign in</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="view/css/bootstrap.min.css" />
-    <script type="text/javascript" src="view/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="view/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/view/css/bootstrap.min.css" />
+    <script type="text/javascript" src="${pageContext.request.contextPath}/view/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/view/js/bootstrap.min.js"></script>
 
     <!-- Custom styles for this template -->
-    <link href="view/css/index.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/view/css/index.css" rel="stylesheet">
 
 </head>
 
@@ -44,7 +44,6 @@
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </form>
-
     </div>
 </body>
 </html>

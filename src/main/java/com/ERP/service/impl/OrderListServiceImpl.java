@@ -18,7 +18,7 @@ public class OrderListServiceImpl implements OrderListService {
         return orderListDao.findOrderByCustomerName(customerName);
     }
 
-    public List<OrderList> findAll() {
+    public List<OrderList> all() {
         return orderListDao.findAll();
     }
 
