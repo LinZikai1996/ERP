@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/css/bootstrap.min.css" />
     <!-- Custom styles for this template -->
     <link href="${pageContext.request.contextPath}/view/css/orderListManage.css" rel="stylesheet">
-    <script type="text/javascript" src="${pageContext.request.contextPath}/view/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/view/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/view/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 
@@ -62,9 +62,15 @@
                         <td>${orderLists.remain}</td>
                         <td>${orderLists.date}</td>
                         <td>
-                            <button type="button" class="btn btn-info">查        看</button>
-                            <button type="button" class="btn btn-warning">修          改</button>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#warning">删          除</button>
+                            <button type="button" class="btn btn-info">
+                                <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+                                &ensp;查&ensp;看</button>
+                            <button type="button" class="btn btn-warning">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                &ensp;修&ensp;改</button>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#warning">
+                                <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                                &ensp;删&ensp;除</button>
                         </td>
                     </tr>
                     </c:forEach>
@@ -74,27 +80,20 @@
                         <td>    </td>
                         <td>    </td>
                         <td>    </td>
-                        <td><button type="button" class="btn btn-success">添        加</button></td>
+                        <td>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addOrderList">
+                                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                                &ensp;添&ensp;加
+                            </button>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="warning" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">确认删除</h4>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-danger">确认删除</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+    <jsp:include page="floatWindow/addOrderList.jsp"/>
+    <jsp:include page="floatWindow/deleteOrderList.jsp"/>
 </div>
 
 </body>
